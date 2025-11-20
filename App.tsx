@@ -88,7 +88,7 @@ const App: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h1 className="text-xl font-bold tracking-tight text-slate-900">CompoundGrowth.ai</h1>
+            <h1 className="text-xl font-bold tracking-tight text-slate-900">CompoundGrowth</h1>
           </div>
         </div>
       </header>
