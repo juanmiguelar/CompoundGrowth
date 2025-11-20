@@ -4,6 +4,7 @@ import { SelectGroup } from './components/SelectGroup';
 import { ResultsChart } from './components/ResultsChart';
 import { ScenarioList } from './components/ScenarioList';
 import { ComparisonTable } from './components/ComparisonTable';
+import { AboutDeveloper } from './components/AboutDeveloper';
 import { calculateCompoundInterest } from './utils/calculator';
 import { DEFAULT_PARAMS, FREQUENCY_OPTIONS } from './constants';
 import { CalculationParams, SavedScenario } from './types';
@@ -197,6 +198,9 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* About Developer */}
+            <AboutDeveloper />
           </div>
 
           {/* Right Content: Chart & Comparison */}
