@@ -89,7 +89,9 @@ const App: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h1 className="text-xl font-bold tracking-tight text-slate-900">CompoundGrowth</h1>
+            <p className="text-xl font-bold tracking-tight text-slate-900" aria-label="CompoundGrowth brand">
+              CompoundGrowth
+            </p>
           </div>
           <a href="https://www.buymeacoffee.com/juanmiguelar09" target="_blank" rel="noreferrer">
             <img 
@@ -105,11 +107,14 @@ const App: React.FC = () => {
         <section className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="space-y-3 max-w-3xl">
-              <h2 className="text-2xl font-bold text-slate-900 leading-tight">
-                Online compound interest calculator
-              </h2>
+              <h1 className="text-2xl font-bold text-slate-900 leading-tight">
+                Online compound interest calculator for monthly contributions and inflation
+              </h1>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 Project your investment growth with monthly contributions, inflation, and different compounding frequencies. Save scenarios, compare strategies, and understand the real value of your money with clear data.
+              </p>
+              <p className="text-slate-500 text-xs sm:text-sm">
+                Jump to the <a href="#comparison" className="text-primary-700 font-semibold hover:underline">scenario comparison</a> or read the <a href="#faq" className="text-primary-700 font-semibold hover:underline">compound interest FAQ</a>.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
@@ -245,7 +250,9 @@ const App: React.FC = () => {
           {/* Right Content: Chart & Comparison */}
           <div className="lg:col-span-8 space-y-6">
             {/* Chart */}
-            <ResultsChart currentResult={results} savedScenarios={comparisonData} />
+            <div id="growth-chart">
+              <ResultsChart currentResult={results} savedScenarios={comparisonData} />
+            </div>
 
             {/* Stats Grid (Visible when only 1 scenario, otherwise can be redundant but still nice) */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -274,12 +281,14 @@ const App: React.FC = () => {
 
             {/* Comparison Table */}
             {savedScenarios.length > 0 && (
-              <ComparisonTable current={currentComparisonItem} saved={comparisonData} />
+              <div id="comparison">
+                <ComparisonTable current={currentComparisonItem} saved={comparisonData} />
+              </div>
             )}
           </div>
         </div>
 
-        <section className="mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+        <section id="faq" className="mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-900">Frequently asked questions about compound interest</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

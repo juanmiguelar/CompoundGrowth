@@ -7,8 +7,10 @@
   <title>Compound Interest Calculator | CompoundGrowth</title>
   <meta name="description"
     content="Project compound growth with monthly contributions, inflation, and compounding frequency. Real-time projections and scenario comparisons for better investing decisions." />
+  <meta name="theme-color" content="#22c55e" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
   <link rel="canonical" href="https://compoundgrowth.app/" />
+  <link rel="alternate" href="https://compoundgrowth.app/" hreflang="en" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,11 +24,15 @@
     content="Model compound interest with recurring contributions, inflation, and compounding frequency. Visualize results and save scenarios." />
   <meta property="og:url" content="https://compoundgrowth.app/" />
   <meta property="og:image" content="https://compoundgrowth.app/og-compound-growth.png" />
+  <meta property="og:image:alt" content="CompoundGrowth online compound interest calculator" />
+  <meta property="og:site_name" content="CompoundGrowth" />
+  <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Compound Interest Calculator | CompoundGrowth" />
   <meta name="twitter:description"
     content="Simulate your compound interest growth and compare strategies in seconds." />
   <meta name="twitter:image" content="https://compoundgrowth.app/og-compound-growth.png" />
+  <meta name="twitter:site" content="@compoundgrowthapp" />
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -39,7 +45,13 @@
         "image": "https://compoundgrowth.app/og-compound-growth.png",
         "author": {
           "@type": "Person",
-          "name": "Juan Miguel"
+          "name": "Juan Miguel",
+          "sameAs": [
+            "https://www.instagram.com/i.am.juan.dev/",
+            "https://www.linkedin.com/in/juan-miguel-arias/",
+            "https://github.com/juanmiguelar",
+            "https://juanmiguel.dev/"
+          ]
         },
         "offers": {
           "@type": "Offer",
@@ -48,6 +60,46 @@
         }
       }
     </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is compound interest calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We apply the classic compound interest formula adjusted to the compounding frequency and your monthly contributions. Each period adds interest to principal and reinvests it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why include inflation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The real value of your money depends on purchasing power. The calculator subtracts annual inflation to show what your investment would be worth in today's terms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which compounding frequency is best?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the financial product: annual, quarterly, monthly, or daily. Test each option to see how the effective rate and final return change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I compare different contributions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Save scenarios with different contributions, rates, or time horizons, and compare them in the chart and table to choose the strategy that fits your goals."
+          }
+        }
+      ]
+    }
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -72,6 +124,8 @@
       }
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
