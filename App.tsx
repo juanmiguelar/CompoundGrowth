@@ -118,7 +118,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <section className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8 transition-all duration-200">
+        <section className="hidden md:block bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8 transition-all duration-200">
           <div className="flex justify-between items-start">
             <h1 className="text-2xl font-bold text-slate-900 leading-tight pr-4">
               Online compound interest calculator for monthly contributions and inflation
@@ -320,7 +320,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <section id="how-to" className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <section id="how-to" className="hidden md:grid mt-10 grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-5 space-y-3 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
             <h2 className="text-xl font-semibold text-slate-900">How to use this calculator</h2>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -375,7 +375,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <section id="faq" className="mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+        <section id="faq" className="hidden md:block mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-900">Frequently asked questions about compound interest</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
