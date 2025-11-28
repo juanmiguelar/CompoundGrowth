@@ -13,6 +13,13 @@ const App: React.FC = () => {
   const [params, setParams] = useState<CalculationParams>(DEFAULT_PARAMS);
   const [scenarioName, setScenarioName] = useState("My Strategy");
   const [savedScenarios, setSavedScenarios] = useState<SavedScenario[]>([]);
+  const [isHeaderExpanded, setIsHeaderExpanded] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('compound_growth_header_expanded');
+      return stored !== null ? stored === 'true' : true;
+    }
+    return true;
+  });
 
   // Load from LocalStorage on mount
   useEffect(() => {
@@ -30,6 +37,13 @@ const App: React.FC = () => {
   useEffect(() => {
     localStorage.setItem('compound_growth_scenarios', JSON.stringify(savedScenarios));
   }, [savedScenarios]);
+
+  // Persist header state
+  useEffect(() => {
+    localStorage.setItem('compound_growth_header_expanded', String(isHeaderExpanded));
+  }, [isHeaderExpanded]);
+
+
 
   // Derived state for calculation results
   const results = useMemo(() => calculateCompoundInterest(params), [params]);
@@ -104,39 +118,57 @@ const App: React.FC = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <section className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="space-y-3 max-w-3xl">
-              <h1 className="text-2xl font-bold text-slate-900 leading-tight">
-                Online compound interest calculator for monthly contributions and inflation
-              </h1>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Project your investment growth with monthly contributions, inflation, and different compounding frequencies. Save scenarios, compare strategies, and understand the real value of your money with clear data.
-              </p>
-              <p className="text-slate-500 text-xs sm:text-sm">
-                Jump to the <a href="#comparison" className="text-primary-700 font-semibold hover:underline">scenario comparison</a> or read the <a href="#faq" className="text-primary-700 font-semibold hover:underline">compound interest FAQ</a>.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Realistic projections</h3>
-                  <p className="text-xs text-slate-600">Includes inflation and compounding frequency for more precise results.</p>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Quick comparisons</h3>
-                  <p className="text-xs text-slate-600">Save strategies and test contributions, rates, and investment horizons.</p>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Share-ready</h3>
-                  <p className="text-xs text-slate-600">Clear charts and tables to guide informed decisions.</p>
-                </div>
-              </div>
-            </div>
-            <div className="self-start w-full md:w-auto">
-              <div className="rounded-lg border border-green-100 bg-green-50 px-4 py-3 text-sm text-green-800 max-w-xs">
-                Built for personal finance, retirement saving, and portfolio simulations.
-              </div>
-            </div>
+        <section className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8 transition-all duration-200">
+          <div className="flex justify-between items-start">
+            <h1 className="text-2xl font-bold text-slate-900 leading-tight pr-4">
+              Online compound interest calculator for monthly contributions and inflation
+            </h1>
+            <button 
+              onClick={() => setIsHeaderExpanded(!isHeaderExpanded)}
+              className="text-slate-400 hover:text-slate-600 p-1 rounded-md hover:bg-slate-50 transition-colors"
+              aria-label={isHeaderExpanded ? "Collapse section" : "Expand section"}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isHeaderExpanded ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {isHeaderExpanded && (
+            <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between animate-in fade-in slide-in-from-top-1 duration-200">
+              <div className="space-y-3 max-w-3xl">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Project your investment growth with monthly contributions, inflation, and different compounding frequencies. Save scenarios, compare strategies, and understand the real value of your money with clear data.
+                </p>
+                <p className="text-slate-500 text-xs sm:text-sm">
+                  Jump to the <a href="#comparison" className="text-primary-700 font-semibold hover:underline">scenario comparison</a> or read the <a href="#faq" className="text-primary-700 font-semibold hover:underline">compound interest FAQ</a>.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">Realistic projections</h3>
+                    <p className="text-xs text-slate-600">Includes inflation and compounding frequency for more precise results.</p>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">Quick comparisons</h3>
+                    <p className="text-xs text-slate-600">Save strategies and test contributions, rates, and investment horizons.</p>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                    <h3 className="text-sm font-semibold text-slate-900 mb-1">Share-ready</h3>
+                    <p className="text-xs text-slate-600">Clear charts and tables to guide informed decisions.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="self-start w-full md:w-auto">
+                <div className="rounded-lg border border-green-100 bg-green-50 px-4 py-3 text-sm text-green-800 max-w-xs">
+                  Built for personal finance, retirement saving, and portfolio simulations.
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
