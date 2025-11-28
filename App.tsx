@@ -320,6 +320,61 @@ const App: React.FC = () => {
           </div>
         </div>
 
+        <section id="how-to" className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-5 space-y-3 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+            <h2 className="text-xl font-semibold text-slate-900">How to use this calculator</h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Follow these steps to model your growth accurately and save scenarios for quick comparisons.
+            </p>
+            <ol className="space-y-3 text-sm text-slate-700 list-decimal list-inside">
+              <li>Enter your initial investment and monthly contribution in the Parameters panel.</li>
+              <li>Choose the annual interest rate, expected inflation, and the number of years.</li>
+              <li>Select a compounding frequency to see how often interest is added.</li>
+              <li>Review the chart, table, and summary. Save scenarios to compare strategies.</li>
+            </ol>
+          </div>
+          <div className="lg:col-span-7 space-y-4">
+            <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">Compound interest formula</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                We apply the classic formula and adjust it for your contribution schedule and chosen frequency:
+              </p>
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-100 text-sm text-slate-800">
+                <p className="font-mono font-semibold">A = P (1 + r / n)^(n * t) + C * [((1 + r / n)^(n * t) - 1) / (r / n)]</p>
+                <p className="text-xs text-slate-500 mt-2">P: principal, C: contribution per period, r: annual rate, n: compounding periods per year, t: years.</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 text-sm text-slate-700">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-semibold text-slate-900 mb-1">Real returns</p>
+                  <p>The real value subtracts inflation so you understand purchasing power, not just nominal gains.</p>
+                </div>
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                  <p className="font-semibold text-slate-900 mb-1">Compounding effects</p>
+                  <p>More frequent compounding slightly boosts results; contributions amplify long-term growth.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+              <h3 className="text-lg font-semibold text-slate-900 mb-3">Example strategies to test</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-slate-700">
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <p className="font-semibold text-slate-900 mb-1">Long-term growth</p>
+                  <p>Higher contributions early, steady rate assumptions, and monthly compounding for retirement goals.</p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <p className="font-semibold text-slate-900 mb-1">Inflation-aware</p>
+                  <p>Stress test with higher inflation to see real value and adjust contributions accordingly.</p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <p className="font-semibold text-slate-900 mb-1">Conservative income</p>
+                  <p>Lower rates and quarterly compounding to model income-focused products and withdrawal plans.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="faq" className="mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
           <div className="space-y-4">
             <h2 className="text-xl font-semibold text-slate-900">Frequently asked questions about compound interest</h2>
