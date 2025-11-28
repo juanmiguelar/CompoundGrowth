@@ -91,10 +91,49 @@ const App: React.FC = () => {
             </div>
             <h1 className="text-xl font-bold tracking-tight text-slate-900">CompoundGrowth</h1>
           </div>
+          <a href="https://www.buymeacoffee.com/juanmiguelar09" target="_blank" rel="noreferrer">
+            <img 
+              src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" 
+              alt="Buy Me A Coffee" 
+              className="h-10 w-auto"
+            />
+          </a>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <section className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 mb-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-3 max-w-3xl">
+              <h2 className="text-2xl font-bold text-slate-900 leading-tight">
+                Online compound interest calculator
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Project your investment growth with monthly contributions, inflation, and different compounding frequencies. Save scenarios, compare strategies, and understand the real value of your money with clear data.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Realistic projections</h3>
+                  <p className="text-xs text-slate-600">Includes inflation and compounding frequency for more precise results.</p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Quick comparisons</h3>
+                  <p className="text-xs text-slate-600">Save strategies and test contributions, rates, and investment horizons.</p>
+                </div>
+                <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <h3 className="text-sm font-semibold text-slate-900 mb-1">Share-ready</h3>
+                  <p className="text-xs text-slate-600">Clear charts and tables to guide informed decisions.</p>
+                </div>
+              </div>
+            </div>
+            <div className="self-start w-full md:w-auto">
+              <div className="rounded-lg border border-green-100 bg-green-50 px-4 py-3 text-sm text-green-800 max-w-xs">
+                Built for personal finance, retirement saving, and portfolio simulations.
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Left Sidebar: Inputs */}
@@ -239,6 +278,30 @@ const App: React.FC = () => {
             )}
           </div>
         </div>
+
+        <section className="mt-10 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-slate-900">Frequently asked questions about compound interest</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-100">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">How is compound interest calculated?</h3>
+                <p className="text-sm text-slate-600">We apply the classic compound interest formula adjusted to the compounding frequency and your monthly contributions. Each period adds interest to principal and reinvests it.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-100">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">Why include inflation?</h3>
+                <p className="text-sm text-slate-600">The real value of your money depends on purchasing power. The calculator subtracts annual inflation to show what your investment would be worth in today's terms.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-100">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">Which compounding frequency is best?</h3>
+                <p className="text-sm text-slate-600">It depends on the financial product: annual, quarterly, monthly, or daily. Test each option here to see how the effective rate and final return change.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-slate-50 border border-slate-100">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">Can I compare different contributions?</h3>
+                <p className="text-sm text-slate-600">Yes. Save scenarios with different contributions, rates, or time horizons, and compare them in the table and chart to choose the strategy that fits your goals.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
